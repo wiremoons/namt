@@ -1,4 +1,4 @@
-[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/hyperium/hyper/master/LICENSE) [![namt](https://github.com/wiremoons/namt/actions/workflows/sxl-build-nim.yml/badge.svg?branch=main)](https://github.com/wiremoons/namt/actions/workflows/namt-build-nim.yml)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/hyperium/hyper/master/LICENSE) [![namt](https://github.com/wiremoons/namt/actions/workflows/namt-build-nim.yml/badge.svg)](https://github.com/wiremoons/namt/actions/workflows/namt-build-nim.yml)
 
 # namt
 Nim Acronym Management Tool (NAMT) manages acronyms stored in a SQLite database.
