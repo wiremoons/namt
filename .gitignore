@@ -1,0 +1,32 @@
+# https://stackoverflow.com/questions/5711120/gitignore-without-binary-files
+# Ignore all
+*
+
+# Unignore all with extensions
+!*.*
+
+# Unignore all dirs
+!*/
+
+# pesky macOS files
+.DS_Store
+
+# Unignore LICENSE
+!LICENSE
+
+# directories to exclude form Git repo
+nimcache/
+nimblecache/
+htmldocs/
+# ensure any binary file are not up loaded
+bin/*
+*.exe
+
+# any 'aspell' back up files are excluded
+*.bak
+
+# any 'debug.txt' file
+debug.txt
+
+# file containing api keys
+keys.txt
