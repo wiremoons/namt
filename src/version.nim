@@ -2,7 +2,7 @@
 ## SOURCE FILE: version.nim
 ##
 ## MIT License
-## Copyright (c) 2020 Simon Rowe
+## Copyright (c) 2021 Simon Rowe
 ## https://github.com/wiremoons/
 ##
 
