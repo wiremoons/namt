@@ -27,8 +27,10 @@ if paramCount() > 0:
   case args[0]
   of "-h", "--help":
     showHelp()
+    quit 0
   of "-v", "--version":
     showVersion()
+    quit 0
   of "-d", "--delete":
     echo "TODO: implement delete records"
   of "-n", "--new":
@@ -41,4 +43,8 @@ if paramCount() > 0:
     echo "TODO: implement search records for default action with unknown cli param"
 else:
   debug "no command line options given"
+  showVersion()
+  #showDbInfo()
   showHelp()
+  writeLine(stderr,"ERROR: no command line option selected. Exit.")
+  quit 1
