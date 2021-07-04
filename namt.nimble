@@ -1,7 +1,7 @@
 # Package
 
-version       = "0.1.0"
-author        = "Simon Rowe"
+version       = "0.2.0"
+author        = "Simon Rowe [wiremoons]"
 description   = "Nim Acronym Management Tool (NAMT) manages acronyms stored in a SQLite database."
 license       = "MIT"
 srcDir        = "src"
@@ -18,7 +18,7 @@ requires "nim >= 1.4.8"
 task release, "Builds a release version":
   echo("\nRelease Build...\n")
   #exec("nimble build -d:release --gc:orc --passC:-march=native")
-  exec("nimble build -d:release --gc:orc")
+  exec("nimble build -d:release --gc:orc --app:console")
 
 task debug, "Builds a debug version":
   echo("\nDebug Build\n")
