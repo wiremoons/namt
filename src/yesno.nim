@@ -2,7 +2,7 @@
 ## SOURCE FILE: yesno.nim
 ## 
 ## MIT License
-## Copyright (c) 2020 Simon Rowe
+## Copyright (c) 2021 Simon Rowe
 ## https://github.com/wiremoons/
 ##
 
@@ -16,7 +16,7 @@ proc getYesNo*(question: string): bool =
   ## Returns: a boolean where user response is: true == yes || false == no
   ## Description: the question string is printed to the screen so the
   ## user can respond with a 'yes' or 'no' response. Accepts different
-  ## forms of 'yes' or 'no' to suit the user prefered approach to
+  ## forms of 'yes' or 'no' to suit the user preferred approach to
   ## answering.
   ##
 
@@ -29,7 +29,7 @@ proc getYesNo*(question: string): bool =
   stdout.styledWrite(fgCyan, fmt"{question} ", resetStyle)
   write(stdout, " [ Y/N ] : ")
 
-  # read user input until a reponse matching a form of 'y' or 'n' is
+  # read user input until a response matching a form of 'y' or 'n' is
   # obtained. Print an error on any unmatched user inputs.
   while true:
     case readLine(stdin)
