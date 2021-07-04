@@ -47,15 +47,16 @@ proc initDbState*(dbState:DBState) =
 
 proc showDbInfo*(dbState:DBState) =
   # display a cpy of the database state structure
-  echo "Database summary:"
-  debug "DB status: " & repr(dbState)
-  echo fmt"  - Database file name: '{dbState.dbFileName}'"
-  echo fmt"  - Database full path: '{dbState.dbFullPath}'"
-  echo fmt"  - Database file size: '{dbState.dbFileSize}' bytes"
-  echo fmt"  - Database modified:  '{dbState.dbFileModTime}'"
-  echo fmt"  - SQLite version: '{dbState.dbSqliteVersion}'"
-  echo fmt"  - Total acronyms: '{dbState.dbRecordCount}'"
-  echo fmt"  - Last acronym entered: '{dbState.dbLastRecordName}'"
+  echo "Database status:"
+  debug "Database structure: " & repr(dbState)
+  echo fmt" - Database file name: '{dbState.dbFileName}'"
+  echo fmt" - Database full path: '{dbState.dbFullPath}'"
+  echo fmt" - Database file size: '{dbState.dbFileSize}' bytes"
+  echo fmt" - Database modified:  '{dbState.dbFileModTime}'"
+  echo ""
+  echo fmt" - SQLite version: '{dbState.dbSqliteVersion}'"
+  echo fmt" - Total acronyms: '{dbState.dbRecordCount}'"
+  echo fmt" - Last acronym entered: '{dbState.dbLastRecordName}'"
   echo ""
 
 

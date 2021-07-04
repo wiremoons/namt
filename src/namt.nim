@@ -32,6 +32,7 @@ let args = commandLineParams()
 if paramCount() > 0:
   case args[0]
   of "-h", "--help", "-?", "?":
+    echo ""
     showHelp()
     quit 0
   of "-v", "--version":
