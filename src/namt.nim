@@ -12,20 +12,26 @@
 import os
 
 # import our own modules from this apps source code repo
-import dbgUtils, version, help
+import dbgUtils, dbManage, types, version, help
 
 
 ###############################################################################
-# MAIN HERE
+# PROGRAM START (MAIN)
 ###############################################################################
 
 debug "WARNING: running with a 'debug' build."
+
+# structure to manage DB status for program
+var dbState = DBState()
+debug "Initial DB status: " & repr(dbState)
+
+initDbState(dbState)
 
 # check for command line options use
 let args = commandLineParams()
 if paramCount() > 0:
   case args[0]
-  of "-h", "--help":
+  of "-h", "--help", "-?", "?":
     showHelp()
     quit 0
   of "-v", "--version":
@@ -39,12 +45,17 @@ if paramCount() > 0:
     echo "TODO: implement search records"
   of "-u", "--update":
     echo "TODO: implement update record"
+  of "-c", "--create":
+    createNewDb(dbState)
   else:
     echo "TODO: implement search records for default action with unknown cli param"
 else:
   debug "no command line options given"
   showVersion()
-  #showDbInfo()
+  showDbInfo(dbState)
   showHelp()
   writeLine(stderr,"ERROR: no command line option selected. Exit.")
   quit 1
+
+# ensure "exit procedures" are run if needed
+quit(QuitSuccess)
