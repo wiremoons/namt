@@ -32,13 +32,10 @@ Copyright (c) 2021 Simon Rowe.
 {buildV}.
 
 For licenses and further information visit:
-   - NAMT application        :  https://github.com/wiremoons/namt/
-   - Nim language & compiler :  https://github.com/nim-lang/Nim/
-   - SQLite database         :  https://www.sqlite.org/
-
-All is well.
+  - NAMT application        :  https://github.com/wiremoons/namt/
+  - Nim language & compiler :  https://github.com/nim-lang/Nim/
+  - SQLite database         :  https://www.sqlite.org/
 """
-  quit 0
 
 # Allow module to be run standalone for tests
 when isMainModule:
