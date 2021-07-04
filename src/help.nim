@@ -42,7 +42,6 @@ Arguments
 <acronym>  : a string representing an acronym to be found. 
              Use quotes if contains spaces. Use '%' for wildcard searches.
 """
-  quit 0
 
 
 # Allow module to be run standalone for tests
