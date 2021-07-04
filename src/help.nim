@@ -29,6 +29,7 @@ Run ./{appName} with:
 
   Flag             Argument     Description
 
+  -c, --create                  create a new acronyms database.
   -h, --help                    display help information.
   -d, --delete     <rec_id>     delete an acronym record.
   -n, --new        <acronym>    add a new record. Argument is optional.
