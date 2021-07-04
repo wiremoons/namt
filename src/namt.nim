@@ -9,7 +9,7 @@
 # nim c -r .\namt.nim
 
 # import the required Nim standard library modules
-import strformat, strutils, options, times, os, terminal
+import os
 
 # import our own modules from this apps source code repo
 import dbgUtils, version, help
