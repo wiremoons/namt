@@ -55,7 +55,7 @@ else:
   showDbInfo(dbState)
   showHelp()
   writeLine(stderr,"ERROR: no command line option selected. Exit.")
-  quit 1
+  quit(QuitSuccess)
 
 # ensure "exit procedures" are run if needed
 quit(QuitSuccess)
