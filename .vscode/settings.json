@@ -1,10 +1,12 @@
 {
     "cSpell.words": [
         "ACRODB",
+        "Conn",
         "Proc",
         "namt",
         "noreturn",
         "repr",
+        "sqlite",
         "strformat",
         "strutils",
         "yesno"
