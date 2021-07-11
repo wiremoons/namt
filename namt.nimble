@@ -1,6 +1,6 @@
 # Package
 
-version       = "0.3.0"
+version       = "0.3.1"
 author        = "Simon Rowe [wiremoons]"
 description   = "Nim Acronym Management Tool (NAMT) manages acronyms stored in a SQLite database."
 license       = "MIT"
