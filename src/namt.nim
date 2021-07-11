@@ -11,7 +11,7 @@
 # import the required Nim standard library modules
 import os
 
-# import our own modules from this apps source code repo
+# import our own local modules
 import dbgUtils, dbManage, types, version, help
 
 
@@ -20,6 +20,7 @@ import dbgUtils, dbManage, types, version, help
 ###############################################################################
 
 debug "WARNING: running with a 'debug' build."
+debug "Rebuild with: `nimble release` if required."
 
 # structure to manage DB status for program
 var dbState = DBState()
