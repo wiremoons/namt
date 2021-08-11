@@ -9,7 +9,7 @@
 # nim c -r .\namt.nim
 
 # import the required Nim standard library modules
-import os
+import os, strformat
 
 # import our own local modules
 import dbgUtils, dbManage, types, version, help
@@ -44,15 +44,22 @@ if paramCount() > 0:
   of "-n", "--new":
     echo "TODO: implement new records"
   of "-s", "--search":
-    echo "TODO: implement search records"
+    debug fmt"Running search requested via '-s' or '--search'"
+    if paramCount() != 2 or args[1].len == 0:
+      writeLine(stderr,fmt"ERROR: for '-s' or '--search' option please provide an acronym to search for. Exit.")
+      quit(QuitFailure);
+    if not searchDb(dbState, args[1]): quit(QuitFailure) else: quit(QuitSuccess)
   of "-u", "--update":
     echo "TODO: implement update record"
   of "-c", "--create":
     createNewDb(dbState)
   else:
-    echo "TODO: implement search records for default action with unknown cli param"
+    debug fmt"Running default action to search for: '{args[0]}'"
+    if args[0].len == 0 or not searchDb(dbState, args[0]):
+      writeLine(stderr,fmt"ERROR: default search action for '{args[0]}' failed. Exit.")
+      quit(QuitFailure);
 else:
-  debug "no command line options given"
+  debug "No command line options detected - displaying default output..."
   showVersion()
   showDbInfo(dbState)
   showHelp()

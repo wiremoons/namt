@@ -24,10 +24,6 @@ proc getDbConnection(dbState:DBState): bool =
     return false
 
 
-#proc searchDb*()=
-  #"Select rowid, ifnull(Acronym,''), ifnull(Definition,''), ifnull(Description,''), ifnull(Source,'') from Acronyms where Acronym like ?1 COLLATE NOCASE ORDER BY Source";
-
-
 proc getSqliteVersion(dbState:DBState):bool =
   ## dbManage.getSqliteVersion : obtain the version of SQLite being used
   ## Uses SQL: "SELECT sqlite_version()";
@@ -58,6 +54,7 @@ proc getDbFileSize(dbState:DBState):bool =
     stderr.writeLine(getCurrentExceptionMsg())
     return false
 
+
 proc getDbModTime(dbState:DBState):bool =
   ## dbManage.getDbModTime : obtain the file modification time for the SQLite database
   try:
@@ -67,6 +64,7 @@ proc getDbModTime(dbState:DBState):bool =
   except:
     stderr.writeLine(getCurrentExceptionMsg())
     return false
+
 
 proc initDbState*(dbState:DBState) =
   ## dbManage.initDbState : locate the SQLite database file and initialise the applications state structure.
@@ -135,3 +133,35 @@ proc createNewDb*(dbState:DBState) {.noreturn} =
       writeLine(stderr, "ERROR: Unable to create a new database file - existing file found.")
       writeLine(stderr, fmt" - remove the current database first: '{dbState.dbFullPath}'.")
       quit()
+
+proc searchDb*(dbState:DBState, findMe:string): bool =
+    ## dbManage.searchDb : find the string 'findMe' in the SQLite database
+    ## Uses SQL: "Select rowid, ifnull(Acronym,''), ifnull(Definition,''), ifnull(Description,''),
+    ## ifnull(Source,'') from Acronyms where Acronym like ?1 COLLATE NOCASE ORDER BY Source";
+
+    if findMe.len == 0:
+      writeLine(stderr, fmt"ERROR: search for zero length item '{findme}' failed.")
+      return false
+
+    debug fmt"Starting a search for '{findme}' in database..."
+
+    let allRows = dbState.db.getAllRows(sql"Select rowid, ifnull(Acronym,''), ifnull(Definition,''), ifnull(Source,''), ifnull(Description,'') from Acronyms where Acronym like ? COLLATE NOCASE ORDER BY Source",findme)
+
+    if allRows.len == 0:
+      writeLine(stderr, fmt"ERROR: search for item '{findme}' failed.")
+      return false
+
+    var rowCount = 0
+    echo ""
+    for row in allRows:
+      echo fmt"""
+ID:          {row[0]}
+ACRONYM:     '{row[1]}' is '{row[2]}'.
+SOURCE:      '{row[3]}'
+DESCRIPTION: {row[4]}
+      """
+      inc(rowCount)
+
+    echo fmt"Search of '{dbState.dbRecordCount}' records for '{findMe}' found '{rowCount}' matches."
+    echo ""
+    return true

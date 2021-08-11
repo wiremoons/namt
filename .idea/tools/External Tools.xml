@@ -6,4 +6,18 @@
       <option name="WORKING_DIRECTORY" value="$FileParentDir$" />
     </exec>
   </tool>
+  <tool name="nimble (exec)" description="Nimble Pacakge Manager" showInMainMenu="false" showInEditor="false" showInProject="false" showInSearchPopup="false" disabled="false" useConsole="true" showConsoleOnStdOut="false" showConsoleOnStdErr="false" synchronizeAfterRun="true">
+    <exec>
+      <option name="COMMAND" value="$USER_HOME$/.nimble/bin/nimble" />
+      <option name="PARAMETERS" value="exec" />
+      <option name="WORKING_DIRECTORY" value="$FileParentDir$" />
+    </exec>
+  </tool>
+  <tool name="nimble (release)" description="Nimble Pacakge Manager" showInMainMenu="false" showInEditor="false" showInProject="false" showInSearchPopup="false" disabled="false" useConsole="true" showConsoleOnStdOut="false" showConsoleOnStdErr="false" synchronizeAfterRun="true">
+    <exec>
+      <option name="COMMAND" value="$USER_HOME$/.nimble/bin/nimble" />
+      <option name="PARAMETERS" value="release" />
+      <option name="WORKING_DIRECTORY" value="$FileParentDir$" />
+    </exec>
+  </tool>
 </toolSet>
