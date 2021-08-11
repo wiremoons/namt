@@ -1,6 +1,6 @@
 # Package
 
-version       = "0.4.0"
+version       = "0.4.1"
 author        = "Simon Rowe [wiremoons]"
 description   = "Nim Acronym Management Tool (NAMT) manages acronyms stored in a SQLite database."
 license       = "MIT"
@@ -29,6 +29,6 @@ before exec:
   exec("nimble debug")
 
 # runs the 'debug' version
-task exec, "Builds and runs a debug version":
+task exec, "Builds and then runs a debug version":
   echo("\nDebug Run\n")
   exec("./bin/namt")
