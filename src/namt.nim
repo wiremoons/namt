@@ -22,7 +22,7 @@ import dbgUtils, dbManage, types, version, help
 debug "WARNING: running with a 'debug' build."
 debug "Rebuild with: `nimble release` if required."
 
-# structure to manage DB status for program
+# structure to manage DB status for program as module 'types.nim'
 var dbState = DBState()
 debug "Initial DB status: " & repr(dbState)
 
