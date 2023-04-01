@@ -19,7 +19,7 @@ proc getDbConnection(dbState:DBState): bool =
   try:
     dbState.db = open(dbState.dbFullPath, "", "", "")
     return true
-  except:
+  except CatchableError:
     stderr.writeLine(getCurrentExceptionMsg())
     return false
 
@@ -50,7 +50,7 @@ proc getDbFileSize(dbState:DBState):bool =
   try:
     dbState.dbFileSize = insertSep($getFileSize(dbState.dbFullPath),sep=',')
     return true
-  except:
+  except CatchableError:
     stderr.writeLine(getCurrentExceptionMsg())
     return false
 
@@ -61,7 +61,7 @@ proc getDbModTime(dbState:DBState):bool =
     let fileTime:Time = getLastModificationTime(dbState.dbFullPath)
     dbState.dbFileModTime = $fileTime.format("ddd dd MMM yyyy HH:mm:ss")
     return true
-  except:
+  except CatchableError:
     stderr.writeLine(getCurrentExceptionMsg())
     return false
 
